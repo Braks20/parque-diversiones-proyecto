@@ -1,0 +1,424 @@
+/* Importar una fuente más moderna y suave */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+    --colorFondo: #f0f2f5;
+    --colorPrincipal: #6c5ce7;
+    --colorSecundario: #a29bfe;
+    --colorAcento: #00cec9;
+    --colorBlanco: #ffffff;
+    --colorTexto: #2d3436;
+    --sombraSuave: 0 8px 30px rgba(0, 0, 0, 0.04);
+    --sombraHover: 0 15px 45px rgba(108, 92, 231, 0.15);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--colorFondo);
+    background-image:
+        radial-gradient(at 0% 0%, rgba(162, 155, 254, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 206, 201, 0.1) 0px, transparent 50%);
+    margin: 0;
+    color: var(--colorTexto);
+    line-height: 1.6;
+}
+
+/* --- Encabezado --- */
+.encabezadoPrincipal {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contenedorTitulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contenedorTitulo h1 {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(45deg, var(--colorPrincipal), var(--colorAcento));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navegacionTitulo a {
+    text-decoration: none;
+    color: var(--colorPrincipal);
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 12px;
+    background: rgba(108, 92, 231, 0.05);
+    transition: 0.3s;
+}
+
+.navegacionTitulo a:hover {
+    background: var(--colorPrincipal);
+    color: white;
+}
+
+/* --- Contenedores --- */
+.contenidoPrincipal {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* --- Botón Agregar --- */
+.botonAccion {
+    background: var(--colorPrincipal);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+    transition: all 0.3s ease;
+}
+
+.botonAccion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(108, 92, 231, 0.3);
+}
+
+/* --- Barra de Filtros --- */
+.contenedorFiltros {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem;
+    border-radius: 24px;
+    margin: 2rem 0;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.inputBusqueda,
+.selectorFiltro {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 12px 15px;
+    border-radius: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.inputBusqueda:focus,
+.selectorFiltro:focus {
+    border-color: var(--colorSecundario);
+    box-shadow: 0 0 0 4px rgba(162, 155, 254, 0.1);
+}
+
+/* --- Helpers --- */
+.oculta {
+    display: none !important;
+}
+
+/* --- Modal --- */
+.capaModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.contenidoModal {
+    background: var(--colorBlanco);
+    padding: 1.25rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 360px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+}
+
+.cabeceraModal {
+    cursor: grab;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #f1f2f6;
+}
+
+.cabeceraModal:active {
+    cursor: grabbing;
+}
+
+.cabeceraModal h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 700;
+    color: var(--colorPrincipal);
+    text-align: center;
+}
+
+.btnCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #b2bec3;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.btnCerrar:hover {
+    color: var(--colorPrincipal);
+    transform: rotate(90deg);
+}
+
+#formularioAtraccion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.filaFormulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.campoFormulario {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campoFormulario label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #636e72;
+    padding-left: 2px;
+}
+
+.campoFormulario input,
+.campoFormulario select,
+.campoFormulario textarea {
+    padding: 8px 12px;
+    border: 2px solid #f1f2f6;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.campoFormulario textarea {
+    min-height: 50px;
+    resize: vertical;
+}
+
+.campoFormulario input:focus,
+.campoFormulario select:focus,
+.campoFormulario textarea:focus {
+    border-color: var(--colorSecundario);
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(162, 155, 254, 0.1);
+}
+
+/* --- Tarjetas --- */
+.rejillaTarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.tarjetaAtraccion {
+    background: var(--colorBlanco);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--sombraSuave);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaAtraccion:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombraHover);
+}
+
+.contenedorImagen {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.imagenAtraccion {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.tarjetaAtraccion:hover .imagenAtraccion {
+    transform: scale(1.1);
+}
+
+.etiquetaEstado {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.estado-actividad {
+    background: rgba(0, 184, 148, 0.85);
+}
+
+.estado-mantenimiento {
+    background: rgba(253, 150, 68, 0.85);
+}
+
+.estado-fuera-de-servicio {
+    background: rgba(214, 48, 49, 0.85);
+}
+
+.contenidoTarjeta {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cabeceraTarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.nombreTexto {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--colorTexto);
+}
+
+.etiquetaCategoria {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--colorPrincipal);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.descripcionTexto {
+    font-size: 0.9rem;
+    color: #636e72;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.pieTarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f2f6;
+    padding-top: 1rem;
+}
+
+.precioTexto {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--colorPrincipal);
+}
+
+.accionesTarjeta {
+    display: flex;
+    gap: 10px;
+}
+
+.btnEditar,
+.btnEliminar {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btnEditar {
+    background: #f0edff;
+    color: var(--colorPrincipal);
+}
+
+.btnEliminar {
+    background: #fff0f0;
+    color: #ff7675;
+}
+
+.btnEditar:hover {
+    background: var(--colorPrincipal);
+    color: white;
+}
+
+.btnEliminar:hover {
+    background: #ff7675;
+    color: white;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 30px));
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

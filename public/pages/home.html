@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Parque de Diversiones</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <header class="encabezadoPrincipal">
+        <div id="contenedorTitulo" class="contenedorTitulo">
+            <img src="../img/logo-top.png" alt="Logo Parque" class="imagenLogo">
+            <h1>Parque de Diversiones — Administración</h1>
+            <nav class="navegacionTitulo">
+                <a href="home.html" class="enlaceInicio">Inicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenidoPrincipal">
+
+        <section class="panelAdministracion">
+            <button type="button" id="btnAgregarAtraccion" class="botonAccion">
+                + Agregar Nueva Atracción
+            </button>
+        </section>
+
+        <!-- Capa de Fondo Modal (Overlay) -->
+        <div id="capaModal" class="capaModal oculta">
+            <div id="contenedorFormulario" class="contenidoModal">
+                <button id="btnCerrarModal" class="btnCerrar">&times;</button>
+                <div class="cabeceraModal" id="cabeceraModal">
+                    <h2 id="tituloModal">Nueva Atracción</h2>
+                </div>
+                <form id="formularioAtraccion">
+                    <div class="campoFormulario">
+                        <label for="urlImagen">URL de Imagen:</label>
+                        <input type="url" id="urlImagen" placeholder="https://ejemplo.com/imagen.jpg" required>
+                    </div>
+                    <div class="campoFormulario">
+                        <label for="nombreAtraccion">Nombre:</label>
+                        <input type="text" id="nombreAtraccion" placeholder="Nombre de la atracción" required>
+                    </div>
+                    <div class="campoFormulario">
+                        <label for="descripcionAtraccion">Descripción:</label>
+                        <textarea id="descripcionAtraccion" placeholder="Descripción breve..." required></textarea>
+                    </div>
+                    <div class="filaFormulario">
+                        <div class="campoFormulario">
+                            <label for="precioAtraccion">Precio:</label>
+                            <input type="number" id="precioAtraccion" placeholder="Precio ($)" required min="0">
+                        </div>
+                        <div class="campoFormulario">
+                            <label for="categoriaAtraccion">Categoría:</label>
+                            <select id="categoriaAtraccion" required>
+                                <option value="" disabled selected>Categoría</option>
+                                <option value="Infantiles">Infantiles</option>
+                                <option value="Extremos">Extremos</option>
+                                <option value="Acuaticos">Acuaticos</option>
+                                <option value="Familiares">Familiares</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campoFormulario">
+                        <label for="estadoAtraccion">Estado:</label>
+                        <select id="estadoAtraccion" required>
+                            <option value="" disabled selected>Selecciona un estado</option>
+                            <option value="Actividad">Actividad</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Fuera de Servicio">Fuera de Servicio</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="btnEnviar" class="botonAccion">Guardar Atracción</button>
+                </form>
+            </div>
+        </div>
+
+        <section id="barraHerramientas" class="contenedorFiltros">
+            <div class="grupoBusqueda">
+                <label for="busquedaAtraccion">Buscar:</label>
+                <input type="text" id="busquedaAtraccion" class="inputBusqueda" placeholder="Nombre de atracción...">
+            </div>
+
+            <div class="grupoFiltro">
+                <label for="filtroEstado">Estado:</label>
+                <select id="filtroEstado" class="selectorFiltro">
+                    <option value="todos">Todos los estados</option>
+                    <option value="Actividad">Actividad</option>
+                    <option value="Mantenimiento">Mantenimiento </option>
+                    <option value="Fuera de Servicio">Fuera de Servicio </option>
+                </select>
+            </div>
+
+            <div class="contadorResultados">
+                Mostrando: <span id="contadorElementos">0</span> elementos
+            </div>
+        </section>
+
+        <section id="contenedorTarjetas" class="seccionAtracciones">
+            <h2 class="tituloSeccion">Listado de Atracciones</h2>
+            <div id="rejillaDinamica" class="rejillaTarjetas">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Plantilla para Tarjetas de Atracción -->
+    <template id="plantillaTarjeta">
+        <article class="tarjetaAtraccion">
+            <div class="contenedorImagen">
+                <img src="" alt="" class="imagenAtraccion">
+                <span class="etiquetaEstado"></span>
+            </div>
+            <div class="contenidoTarjeta">
+                <div class="cabeceraTarjeta">
+                    <h3 class="nombreTexto"></h3>
+                    <span class="etiquetaCategoria"></span>
+                </div>
+                <p class="descripcionTexto"></p>
+                <div class="pieTarjeta">
+                    <span class="precioTexto"></span>
+                    <div class="accionesTarjeta">
+                        <button class="btnEditar">Editar</button>
+                        <button class="btnEliminar">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script type="module" src="../js/home.js"></script>
+</body>
+
+</html>
