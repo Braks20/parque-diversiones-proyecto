@@ -345,9 +345,36 @@ body {
 .descripcionTexto {
     font-size: 0.9rem;
     color: #636e72;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1rem 0;
     line-height: 1.5;
     flex-grow: 1;
+}
+
+.detallesAtraccion {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1rem;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.alturaTexto,
+.tiempoTexto {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b4b4b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.alturaTexto::before {
+    content: "📏";
+}
+
+.tiempoTexto::before {
+    content: "⏱️";
 }
 
 .pieTarjeta {

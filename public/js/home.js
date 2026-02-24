@@ -18,6 +18,8 @@ const inputNombre = document.getElementById('nombreAtraccion');
 const inputDescripcion = document.getElementById('descripcionAtraccion');
 const inputPrecio = document.getElementById('precioAtraccion');
 const selectCategoria = document.getElementById('categoriaAtraccion');
+const inputAltura = document.getElementById('alturaMinima');
+const inputTiempo = document.getElementById('tiempoEspera');
 const selectEstado = document.getElementById('estadoAtraccion');
 
 // Búsqueda y Filtros
@@ -64,6 +66,8 @@ const cargarDatosFormulario = (datos) => {
     inputDescripcion.value = datos.descripcion || '';
     inputPrecio.value = datos.precio || '';
     selectCategoria.value = datos.categoria || '';
+    inputAltura.value = datos.alturaMin || '';
+    inputTiempo.value = datos.tiempoE || '';
     selectEstado.value = datos.estado || '';
 };
 
@@ -143,6 +147,8 @@ function renderizarTarjetas(lista) {
         clon.querySelector('.descripcionTexto').textContent = atraccion.descripcion;
         clon.querySelector('.etiquetaCategoria').textContent = atraccion.categoria;
         clon.querySelector('.precioTexto').textContent = `$${atraccion.precio}`;
+        clon.querySelector('.alturaTexto').textContent = `H: ${atraccion.alturaMin} cm`;
+        clon.querySelector('.tiempoTexto').textContent = `T: ${atraccion.tiempoE} min`;
 
         // Acciones
         clon.querySelector('.btnEliminar').addEventListener('click', async () => {
@@ -196,7 +202,9 @@ formularioAtraccion.addEventListener('submit', async (e) => {
         imagen: inputImagen.value,
         precio: parseFloat(inputPrecio.value),
         estado: selectEstado.value,
-        categoria: selectCategoria.value
+        categoria: selectCategoria.value,
+        alturaMin: parseFloat(inputAltura.value),
+        tiempoE: parseFloat(inputTiempo.value)
     };
 
     try {
