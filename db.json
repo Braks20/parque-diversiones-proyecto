@@ -1,3 +1,37 @@
 {
-  "atracciones": []
+  "atracciones": [
+    {
+      "id": "3ab8",
+      "nombre": "121212",
+      "descripcion": "121212",
+      "imagen": "https://parquediversiones.com/sites/default/files/2024-05/asset-a2-aventura.jpg",
+      "precio": 121212,
+      "estado": "Actividad",
+      "categoria": "Infantiles",
+      "alturaMin": 1212,
+      "tiempoE": 1212
+    },
+    {
+      "id": "392b",
+      "nombre": "nombre",
+      "descripcion": "1212121212",
+      "imagen": "https://parquediversiones.com/sites/default/files/2024-05/asset-a2-aventura.jpg",
+      "precio": 122222,
+      "estado": "Mantenimiento",
+      "categoria": "Infantiles",
+      "alturaMin": 1222,
+      "tiempoE": 223
+    },
+    {
+      "id": "34c6",
+      "nombre": "hola",
+      "descripcion": "holaaas",
+      "imagen": "https://parquediversiones.com/sites/default/files/2024-05/asset-a2-aventura.jpg",
+      "precio": 12222,
+      "estado": "Fuera de Servicio",
+      "categoria": "Infantiles",
+      "alturaMin": 233,
+      "tiempoE": 2566
+    }
+  ]
 }

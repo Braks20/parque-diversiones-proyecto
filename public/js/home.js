@@ -1,6 +1,6 @@
 import { getAtracciones, postAtraccion, deleteAtraccion, putAtraccion } from "../services/atraccionesServices.js";
 
-// --- Referencias al DOM ---
+// --- Referencias ---
 const btnAgregar = document.getElementById('btnAgregarAtraccion');
 const capaModal = document.getElementById('capaModal');
 const btnCerrarModal = document.getElementById('btnCerrarModal');
